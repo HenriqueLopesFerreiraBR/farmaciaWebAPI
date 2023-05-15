@@ -9,8 +9,7 @@ const ClientSchema = new mongoose.Schema(
         cpf: {
             type: Number,
             require: true,
-            unique: true,
-            max: 11
+            unique: true
         },
         email: {
             type: String,

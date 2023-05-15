@@ -38,6 +38,12 @@ async function CreateUserValidation(req, res, next) {
             .status(422)
             .json({ message: "O campo password não pode ser vazio" });
     }
+    //Valida se a senha tem menos de 6 digitos 
+    if (password.length < 6) {
+        return res
+            .status(422)
+            .json({ message: "O password não pode menos de 6 digitos" });
+    }
 
     //esse metodo valida a confirmação das senhas
     if (password != confirmPassword) {

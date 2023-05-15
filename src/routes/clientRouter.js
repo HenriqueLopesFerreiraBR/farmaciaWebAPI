@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router()
 const ClientModel = require('../model/clientModel')
+const ClientMiddleware = require('../middleware/clienteMiddleware')
 
 // GETALL
 router.get('/', async(req,res)=>{
@@ -25,7 +26,7 @@ router.get('/:id', async(req,res)=>{
 })
 
 // CREATE
-router.post('/', async(req,res)=>{
+router.post('/',ClientMiddleware.createClienteValidator ,async(req,res)=>{
     const {username,cpf,email,endereco} = req.body
 
     try {
