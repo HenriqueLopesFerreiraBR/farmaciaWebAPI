@@ -45,7 +45,7 @@ router.post('/',ClientMiddleware.createClienteValidator ,async(req,res)=>{
     }
 })
 // UPDATE
-router.put('/:id', async(req,res)=>{
+router.put('/:id', ClientMiddleware.createClienteValidator,async(req,res)=>{
     const id = req.params.id;
 
     const client = {

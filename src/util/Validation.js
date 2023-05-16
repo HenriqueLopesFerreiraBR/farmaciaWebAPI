@@ -30,7 +30,14 @@ function validarEmail(email) {
     return re.test(email);
   }
 
+//Método para válidar CEP
+function validarCEP(cep) {
+  const re = /^\d{5}-?\d{3}$/; // Expressão regular para validar CEP
+  return re.test(cep);
+}
+
 module.exports = {
     validarCPF,
-    validarEmail
+    validarEmail,
+    validarCEP
 }
