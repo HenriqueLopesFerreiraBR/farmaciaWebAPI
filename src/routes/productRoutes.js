@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router()
 const ProductModel = require('../model/productModel')
+const {createProductValidator} = require('../middleware/productMiddleware')
 
 
 // GETALL
@@ -27,7 +28,7 @@ router.get('/:id', async(req,res)=>{
 })
 
 // CREATE
-router.post('/', async(req,res)=>{
+router.post('/', createProductValidator,async(req,res)=>{
     const {name,descri,category,manufacturer,purchasePrice,salePrice,classification} = req.body
 
     try {
